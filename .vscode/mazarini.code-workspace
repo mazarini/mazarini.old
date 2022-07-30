@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "path": ".."
+        }
+    ],
+    "settings": {
+        "json.schemas": [
+        
+        ],
+        "files.associations": {
+            ".neon.dist": "yaml",
+            ".xml.dist": "xml"
+        }
+    },
+}
