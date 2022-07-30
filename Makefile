@@ -1,12 +1,24 @@
 # Makefile
 
-validate: composer phpstan phpunit twig yaml container
+validate: composer phpcs container twig yaml phpstan phpunit
 
 #################################################################
 # composer
 #################################################################
 composer:
 	composer validate --strict
+
+#################################################################
+# container
+#################################################################
+container:
+	bin/console lint:container
+
+#################################################################
+# php-cs-fixer
+#################################################################
+phpcs:
+	~/.config/composer/vendor/bin/php-cs-fixer fix --config config/.php-cs-fixer.dist.php
 
 #################################################################
 # phpstan
@@ -32,9 +44,4 @@ twig:
 yaml:
 	bin/console lint:yaml config phpstan.neon.dist
     
-#################################################################
-# container
-#################################################################
-container:
-	bin/console lint:container
     
