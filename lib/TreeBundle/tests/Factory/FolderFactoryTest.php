@@ -99,6 +99,9 @@ class FolderFactoryTest extends TestCase
 
     protected static function rmTmp(string $dir): bool
     {
+        if (!file_exists($dir)) {
+            return true;
+        }
         if (is_file($dir)) {
             return unlink($dir);
         }
