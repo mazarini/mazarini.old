@@ -33,6 +33,11 @@ class File extends KeyItemAbstract
         return $this->path;
     }
 
+    public function path(): string
+    {
+        return $this->path;
+    }
+
     public function filename(): string
     {
         $pathinfo = $this->pathinfo();
