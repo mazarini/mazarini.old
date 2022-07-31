@@ -53,11 +53,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "Mazarini\\TreeBundle\\": "lib/TreeBundle/lib/"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            "App\\": "src/",
             "App\\Tests\\": "tests/"
         }
     },

@@ -6,6 +6,7 @@ parameters:
     paths:
         - src
         - tests
+        - lib/TreeBundle/lib
     bootstrapFiles:
 #       - vendor/bin/.phpunit/phpunit/vendor/autoload.php
         - vendor/autoload.php
