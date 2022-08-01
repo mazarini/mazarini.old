@@ -9,6 +9,7 @@
         
         ],
         "files.associations": {
+            ".env.test": "ini",
             ".neon.dist": "yaml",
             ".xml.dist": "xml"
         }
