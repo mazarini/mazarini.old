@@ -31,11 +31,11 @@ class EntityRepositoryTest extends KernelTestCase
 
     public static function setUpBeforeClass(): void
     {
-        static::setRepository();
     }
 
     protected function setUp(): void
     {
+        static::setRepository();
         $this->tearDown();
 
         $entity = new Entity();

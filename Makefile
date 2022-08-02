@@ -44,4 +44,16 @@ twig:
 yaml:
 	bin/console lint:yaml config phpstan.neon.dist
     
-    
+#################################################################
+# Database
+#################################################################
+
+init:
+	bin/console doctrine:database:drop --env=dev --force
+	bin/console doctrine:database:drop --env=test --force
+	bin/console doctrine:database:create --env=dev
+	bin/console doctrine:database:create --env=test
+	bin/console doctrine:migrations:migrate --no-interaction --env=dev
+	bin/console doctrine:migrations:migrate --no-interaction --env=test
+
+

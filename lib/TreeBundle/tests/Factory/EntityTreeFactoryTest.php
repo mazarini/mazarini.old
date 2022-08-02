@@ -32,8 +32,12 @@ class EntityTreeFactoryTest extends KernelTestCase
 
     public static function setUpBeforeClass(): void
     {
+    }
+
+    protected function setUp(): void
+    {
         static::setRepository();
-        static::tearDownAfterClass();
+        $this->tearDown();
         $parent = new ItemEntity();
         $parent->setSlug('parent');
         static::$repository->add($parent, true);
@@ -50,10 +54,6 @@ class EntityTreeFactoryTest extends KernelTestCase
         static::$repository->add($child1);
         static::$repository->add($child2);
         static::$repository->flush();
-    }
-
-    protected function setUp(): void
-    {
         $this->nodeFactory = new EntityTreeFactory(static::$repository);
     }
 
@@ -80,17 +80,17 @@ class EntityTreeFactoryTest extends KernelTestCase
         $this->assertSame($this->nodeFactory->getNode('child2'), $root['entity']['child2']);
     }
 
-    public static function tearDownAfterClass(): void
+    protected function tearDown(): void
     {
         while (1 === \count($object = static::$repository->findby([], ['id' => 'ASC'], 1, 0))) {
-            static::remove($object[0]);
+            $this->remove($object[0]);
         }
     }
 
-    protected static function remove(ItemEntity $object): void
+    protected function remove(ItemEntity $object): void
     {
         foreach ($object->getChilds() as $child) {
-            static::remove($child);
+            $this->remove($child);
         }
         static::$repository->remove($object, true);
     }
