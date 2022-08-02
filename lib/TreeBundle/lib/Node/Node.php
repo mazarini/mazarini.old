@@ -31,12 +31,12 @@ class Node extends \ArrayIterator implements NodeInterface
     /**
      * parent.
      */
-    private NodeInterface $parent;
+    protected NodeInterface $parent;
 
     /**
      * item.
      */
-    private ItemInterface $item;
+    protected ItemInterface $item;
 
     public function __construct(ItemInterface $item = null)
     {

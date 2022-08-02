@@ -1,6 +1,7 @@
 ###> local ###
 /var/*
 !/var/data
+/**/*.log
 ###< local ###
 
 ###> symfony/framework-bundle ###
