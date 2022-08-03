@@ -19,6 +19,8 @@
 
 namespace Mazarini\TreeBundle\Item;
 
+use LogicException;
+
 class File extends KeyItemAbstract
 {
     protected string $path;
@@ -79,7 +81,7 @@ class File extends KeyItemAbstract
     {
         $array = pathinfo($this->path);
         if (!\is_array($array)) {
-            throw new \LogicException('pathinfo must return an array');
+            throw new LogicException('pathinfo must return an array');
         }
 
         return $array;

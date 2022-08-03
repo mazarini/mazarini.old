@@ -17,5 +17,7 @@
         "php-cs-fixer.config": "config/phpcs/file.php",
         "php-cs-fixer.onsave": true,
         "git.suggestSmartCommit": false,
+        "phpmd.validate.executablePath": "~/.config/composer/vendor/bin/phpmd",
+        "phpmd.validate.rulesetsFile": "config/phpmd/rulesets.xml",
     },
 }

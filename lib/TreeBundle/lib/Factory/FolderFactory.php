@@ -48,16 +48,16 @@ class FolderFactory
         $paths = scandir($rootPath);
         if (false === $paths) {
             $paths = [];
-        } else {
-            $paths = array_diff($paths, ['.', '..']);
         }
         foreach ($paths as $item) {
             $path = $rootPath.'/'.$item;
             switch (true) {
-                case is_file($path):
+                case \in_array($item, ['.', '..']):
+                    break;
+                 case is_file($path):
                     $node[] = new Node($fileFactory->getFile($path));
                     break;
-                case is_dir($path):
+                 case is_dir($path):
                     $node[] = $this->acrossFolder(new Node($fileFactory->getFile($path)), $path, $fileFactory);
                     break;
             }

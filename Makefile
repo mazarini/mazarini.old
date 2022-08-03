@@ -21,6 +21,12 @@ cs:
 	~/.config/composer/vendor/bin/php-cs-fixer fix --config config/phpcs/global.php
 
 #################################################################
+# phpmd
+#################################################################
+md:
+	~/.config/composer/vendor/bin/phpmd src,lib text config/phpmd/rulesets.xml
+
+#################################################################
 # phpstan
 #################################################################
 phpstan:

@@ -27,7 +27,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class EntityTreeFactoryTest extends KernelTestCase
 {
-    protected EntityTreeFactory $NodeFactory;
+    protected EntityTreeFactory $nodeFactory;
     protected static ItemEntityRepository $repository;
 
     public static function setUpBeforeClass(): void
