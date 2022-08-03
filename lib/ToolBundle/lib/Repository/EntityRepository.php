@@ -23,7 +23,8 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Mazarini\ToolBundle\Entity\EntityInterface;
 
 /**
- * @extends ServiceEntityRepository<EntityInterface>
+ * @template T of object
+ * @template-extends ServiceEntityRepository<T>
  */
 class EntityRepository extends ServiceEntityRepository
 {

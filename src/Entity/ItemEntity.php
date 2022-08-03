@@ -32,7 +32,7 @@ class ItemEntity extends ItemEntityAbstract implements ItemEntityInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    protected ?int $id = 0;
 
     #[ORM\Column(length: 255)]
     private string $slug = '';
@@ -51,15 +51,6 @@ class ItemEntity extends ItemEntityAbstract implements ItemEntityInterface
     public function __construct()
     {
         $this->childs = new ArrayCollection();
-    }
-
-    public function getId(): int
-    {
-        if (null === $this->id) {
-            return 0;
-        }
-
-        return $this->id;
     }
 
     /**

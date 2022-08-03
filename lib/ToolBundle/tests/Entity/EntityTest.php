@@ -19,7 +19,7 @@
 
 namespace Mazarini\ToolBundle\Tests\Entity;
 
-use Mazarini\ToolBundle\Entity\EntityAbstract;
+use Mazarini\ToolBundle\Entity\Entity;
 use PHPUnit\Framework\TestCase;
 
 class EntityTest extends TestCase
@@ -28,23 +28,9 @@ class EntityTest extends TestCase
     {
         $entity = new Entity();
         $this->assertTrue($entity->isNew());
-        $this->assertFalse($entity->setId(1)->isNew());
-    }
-}
-
-class Entity extends EntityAbstract
-{
-    protected int $id = 0;
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-
-        return $this;
+        $reflectionClass = new \ReflectionClass(Entity::class);
+        $reflectionClass->getProperty('id')->setValue($entity, 1);
+        $this->assertFalse($entity->isNew());
+        $this->assertSame(1, $entity->getId());
     }
 }

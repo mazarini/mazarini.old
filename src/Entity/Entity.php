@@ -21,35 +21,9 @@ namespace App\Entity;
 
 use App\Repository\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Mazarini\ToolBundle\Entity\EntityAbstract;
-use Mazarini\ToolBundle\Entity\EntityInterface;
+use Mazarini\ToolBundle\Entity\Entity as Base;
 
 #[ORM\Entity(repositoryClass: EntityRepository::class)]
-class Entity extends EntityAbstract implements EntityInterface
+class Entity extends Base
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
-    public function getId(): int
-    {
-        if (null === $this->id) {
-            return 0;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * Set the value of id.
-     *
-     * @return self
-     */
-    public function setId(int $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 }

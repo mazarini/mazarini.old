@@ -20,10 +20,10 @@
 namespace Mazarini\TreeBundle\Entity;
 
 use Doctrine\Common\Collections\Collection;
-use Mazarini\ToolBundle\Entity\EntityAbstract;
+use Mazarini\ToolBundle\Entity\Entity as Base;
 use Mazarini\TreeBundle\Item\ItemInterface;
 
-abstract class ItemEntityAbstract extends EntityAbstract implements ItemEntityInterface
+abstract class ItemEntityAbstract extends Base implements ItemEntityInterface
 {
     abstract public function getParent(): ItemEntityInterface;
 

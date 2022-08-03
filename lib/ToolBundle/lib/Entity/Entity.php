@@ -19,9 +19,26 @@
 
 namespace Mazarini\ToolBundle\Entity;
 
-abstract class EntityAbstract implements EntityInterface
+use Doctrine\ORM\Mapping as ORM;
+
+class Entity implements EntityInterface
 {
-    abstract public function getId(): int;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    protected ?int $id = 0;
+
+    /**
+     * getId.
+     */
+    public function getId(): int
+    {
+        if (null === $this->id) {
+            return 0;
+        }
+
+        return $this->id;
+    }
 
     public function isNew(): bool
     {
