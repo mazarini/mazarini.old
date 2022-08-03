@@ -1,6 +1,6 @@
 # Makefile
 
-validate: composer cs container twig yaml phpstan phpunit
+validate: composer cs container twig yaml phpstan test
 
 #################################################################
 # composer
@@ -29,8 +29,14 @@ phpstan:
 #################################################################
 # phpunit
 #################################################################
-phpunit:
-	bin/phpunit
+test:
+	bin/phpunit --cache-result-file var/phpunit.result.cache --configuration config/phpunit/phpunit.xml.dist
+
+cover:
+	XDEBUG_MODE=coverage bin/phpunit --cache-result-file var/phpunit.result.cache --configuration config/phpunit/phpunit.xml.dist --coverage-html var/cover
+
+tst:
+	XDEBUG_MODE=coverage bin/phpunit --cache-result-file var/phpunit.result.cache --configuration config/phpunit/phpunit.xml.dist --coverage-text
 
 #################################################################
 # twig

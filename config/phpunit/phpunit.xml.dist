@@ -5,7 +5,7 @@
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          backupGlobals="false"
          colors="true"
-         bootstrap="tests/bootstrap.php"
+         bootstrap="bootstrap.php"
          convertDeprecationsToExceptions="false"
 >
     <php>
@@ -19,14 +19,15 @@
 
     <testsuites>
         <testsuite name="Project Test Suite">
-            <directory>tests</directory>
-            <directory>lib/*/tests/</directory>
+            <directory>../../tests</directory>
+            <directory>../../lib/*/tests/</directory>
         </testsuite>
     </testsuites>
 
     <coverage processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">src</directory>
+            <directory suffix=".php">../../src</directory>
+            <directory suffix=".php">../../lib/*/lib</directory>
         </include>
     </coverage>
 
