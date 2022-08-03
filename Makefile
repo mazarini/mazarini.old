@@ -1,6 +1,6 @@
 # Makefile
 
-validate: composer phpcs container twig yaml phpstan phpunit
+validate: composer cs container twig yaml phpstan phpunit
 
 #################################################################
 # composer
@@ -17,8 +17,8 @@ container:
 #################################################################
 # php-cs-fixer
 #################################################################
-phpcs:
-	~/.config/composer/vendor/bin/php-cs-fixer fix --config config/.php-cs-fixer.dist.php
+cs:
+	~/.config/composer/vendor/bin/php-cs-fixer fix --config config/phpcs/global.php
 
 #################################################################
 # phpstan

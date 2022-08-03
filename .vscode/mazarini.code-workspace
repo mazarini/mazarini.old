@@ -5,13 +5,17 @@
         }
     ],
     "settings": {
-        "json.schemas": [
-        
-        ],
+        "json.schemas": [],
         "files.associations": {
             ".env.test": "ini",
             ".neon.dist": "yaml",
             ".xml.dist": "xml"
-        }
+        },
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {},
+        "php-cs-fixer.allowRisky": true,
+        "php-cs-fixer.config": "config/phpcs/file.php",
+        "php-cs-fixer.onsave": true,
+        "git.suggestSmartCommit": false,
     },
 }
