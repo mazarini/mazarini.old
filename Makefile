@@ -24,7 +24,7 @@ cs:
 # phpstan
 #################################################################
 phpstan:
-	phpstan
+	phpstan -cconfig/phpstan/phpstan.neon.dist
 
 #################################################################
 # phpunit
@@ -48,7 +48,7 @@ twig:
 # twig
 #################################################################
 yaml:
-	bin/console lint:yaml config phpstan.neon.dist
+	bin/console lint:yaml config config/phpstan/phpstan.neon.dist
     
 #################################################################
 # Database
