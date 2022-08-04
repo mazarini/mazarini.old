@@ -10,7 +10,7 @@ on:
 
 env:
     fail-fast: true
-    composer_global: ~/.config/composer
+    composer_global_bin: ~/.composer/vendor/bin
 
 jobs:
     test:
@@ -50,7 +50,7 @@ jobs:
                   restore-keys: ${{ runner.os }}-${{ matrix.php-version }}-composer-
 
             - name: "Install tools"
-              run: mkdir -p ${composer_global} && composer global require friendsofphp/php-cs-fixer -d${composer_global}
+              run: composer global require friendsofphp/php-cs-fixer
 
             - name: "Install"
               run: composer install
@@ -68,4 +68,4 @@ jobs:
               run: make twig
 
             - name: "Lint PHP"
-              run: make cs
+              run: {composer_global_bin}/php-cs-fixer fix --config config/phpcs/global.php

@@ -10,7 +10,7 @@ on:
 
 env:
     fail-fast: true
-    composer_global: ~/.config/composer
+    composer_global_bin: ~/.composer/vendor/bin
 
 jobs:
     test:
@@ -50,10 +50,10 @@ jobs:
                   restore-keys: ${{ runner.os }}-${{ matrix.php-version }}-composer-
 
             - name: "Install tools"
-              run: mkdir -p ${composer_global} && composer global require phpmd/phpmd -d${composer_global}
+              run: composer global require phpmd/phpmd
 
             - name: "Install"
               run: composer install
 
             - name: "Analyse with phpmd"
-              run: make md
+              run: {composer_global_bin}/phpmd src,lib text config/phpmd/rulesets.xml
