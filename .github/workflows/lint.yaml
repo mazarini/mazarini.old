@@ -10,12 +10,13 @@ on:
 
 env:
     fail-fast: true
+    composer_global: ~/.config/composer
 
 jobs:
     test:
         name: "${{ matrix.operating-system }} / PHP ${{ matrix.php-version }}"
         runs-on: ${{ matrix.operating-system }}
-        continue-on-error: false
+        continue-on-error: true
 
         strategy:
             matrix:
@@ -49,7 +50,7 @@ jobs:
                   restore-keys: ${{ runner.os }}-${{ matrix.php-version }}-composer-
 
             - name: "Install tools"
-              run: composer global require friendsofphp/php-cs-fixer -d~/.config/composer
+              run: mkdir -p ${composer_global} && composer global require friendsofphp/php-cs-fixer -d${composer_global}
 
             - name: "Install"
               run: composer install

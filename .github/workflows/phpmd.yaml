@@ -10,6 +10,7 @@ on:
 
 env:
     fail-fast: true
+    composer_global: ~/.config/composer
 
 jobs:
     test:
@@ -49,7 +50,7 @@ jobs:
                   restore-keys: ${{ runner.os }}-${{ matrix.php-version }}-composer-
 
             - name: "Install tools"
-              run: composer global require phpmd/phpmd -d~/.config/composer
+              run: mkdir -p ${composer_global} && composer global require phpmd/phpmd -d${composer_global}
 
             - name: "Install"
               run: composer install
