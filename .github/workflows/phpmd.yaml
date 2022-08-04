@@ -49,7 +49,7 @@ jobs:
                   restore-keys: ${{ runner.os }}-${{ matrix.php-version }}-composer-
 
             - name: "Install tools"
-              run: composer global require phpmd/phpmd
+              run: composer global require phpmd/phpmd -d~/.config/composer
 
             - name: "Install"
               run: composer install

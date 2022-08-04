@@ -49,7 +49,7 @@ jobs:
                   restore-keys: ${{ runner.os }}-${{ matrix.php-version }}-composer-
 
             - name: "Install tools"
-              run: composer global require friendsofphp/php-cs-fixer
+              run: composer global require friendsofphp/php-cs-fixer -d~/.config/composer
 
             - name: "Install"
               run: composer install
