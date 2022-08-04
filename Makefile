@@ -3,6 +3,12 @@
 validate: composer cs container twig yaml phpstan test
 
 #################################################################
+# install
+#################################################################
+install:
+	composer install
+
+#################################################################
 # composer
 #################################################################
 composer:
@@ -30,7 +36,7 @@ md:
 # phpstan
 #################################################################
 phpstan:
-	phpstan -cconfig/phpstan/phpstan.neon.dist
+	~/.config/composer/vendor/bin/phpstan -cconfig/phpstan/phpstan.neon.dist
 
 #################################################################
 # phpunit
